@@ -1,0 +1,14 @@
+E:\КПІ\ОП\Лаби\2\FootballAPI\FootballAPI\obj\Release\net5.0\PubTmp\Out\FootballAPI.exe
+E:\КПІ\ОП\Лаби\2\FootballAPI\FootballAPI\obj\Release\net5.0\PubTmp\Out\appsettings.Development.json
+E:\КПІ\ОП\Лаби\2\FootballAPI\FootballAPI\obj\Release\net5.0\PubTmp\Out\appsettings.json
+E:\КПІ\ОП\Лаби\2\FootballAPI\FootballAPI\obj\Release\net5.0\PubTmp\Out\FootballAPI.dll
+E:\КПІ\ОП\Лаби\2\FootballAPI\FootballAPI\obj\Release\net5.0\PubTmp\Out\FootballAPI.deps.json
+E:\КПІ\ОП\Лаби\2\FootballAPI\FootballAPI\obj\Release\net5.0\PubTmp\Out\FootballAPI.runtimeconfig.json
+E:\КПІ\ОП\Лаби\2\FootballAPI\FootballAPI\obj\Release\net5.0\PubTmp\Out\FootballAPI.pdb
+E:\КПІ\ОП\Лаби\2\FootballAPI\FootballAPI\obj\Release\net5.0\PubTmp\Out\AWSSDK.Core.dll
+E:\КПІ\ОП\Лаби\2\FootballAPI\FootballAPI\obj\Release\net5.0\PubTmp\Out\AWSSDK.DynamoDBv2.dll
+E:\КПІ\ОП\Лаби\2\FootballAPI\FootballAPI\obj\Release\net5.0\PubTmp\Out\Microsoft.OpenApi.dll
+E:\КПІ\ОП\Лаби\2\FootballAPI\FootballAPI\obj\Release\net5.0\PubTmp\Out\Newtonsoft.Json.dll
+E:\КПІ\ОП\Лаби\2\FootballAPI\FootballAPI\obj\Release\net5.0\PubTmp\Out\Swashbuckle.AspNetCore.Swagger.dll
+E:\КПІ\ОП\Лаби\2\FootballAPI\FootballAPI\obj\Release\net5.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerGen.dll
+E:\КПІ\ОП\Лаби\2\FootballAPI\FootballAPI\obj\Release\net5.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerUI.dll

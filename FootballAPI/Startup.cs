@@ -2,22 +2,18 @@ using Amazon;
 using Amazon.DynamoDBv2;
 using Amazon.DynamoDBv2.DataModel;
 using Amazon.Runtime;
-using FootballAPI.Abstractions;
-using FootballAPI.Clients;
-using FootballAPI.Models.Repositories;
+using BLL.Clients;
+using BLL.Interfaces;
+using BLL.Services;
+using DAL.Clients;
+using DAL.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace FootballAPI
 {
@@ -38,22 +34,23 @@ namespace FootballAPI
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "FootballAPI", Version = "v1" });
-                c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First()); ///////////////////////This line
+                c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
             });
-            services.AddSingleton<FootballClient>();
-            services.AddSingleton<ITeamStatisticsRepository, TeamStatisticRepository>();
-            services.AddSingleton<IFixtureRepository, FixtureRepository>();
 
-            var credentials = new BasicAWSCredentials(Constants.AccessKey, Constants.Secret);
+
+            var credentials = new BasicAWSCredentials("xxxxxxxxxxx", "xxxxxxxxxxx");
             var config = new AmazonDynamoDBConfig()
             {
                 RegionEndpoint = RegionEndpoint.EUWest3
             };
             var client = new AmazonDynamoDBClient(credentials, config);
             services.AddSingleton<IAmazonDynamoDB>(client);
+            services.AddSingleton<FootballClient>();
             services.AddSingleton<IDynamoDBContext, DynamoDBContext>();
-           services.AddSingleton<IDynamoDBClient, DynamoDBClient>();
+            services.AddSingleton<IDynamoDBClient, DynamoDBClient>();
 
+            services.AddTransient<ITeamStatisticsService, TeamStatisticsService>();
+            services.AddTransient<IFixtureService, FixtureService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

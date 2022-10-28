@@ -33,13 +33,6 @@ namespace DAL.Clients
                 return null;
 
             return response;
-
-            //foreach (Dictionary<string, AttributeValue> item in response.Items)
-            //{
-            //    result.Add(item.ToClass<FixtureDBResponse>());
-
-            //}
-            //return result;
         }
 
         public async Task<bool> PostFixture(FixtureDb data)
@@ -108,7 +101,6 @@ namespace DAL.Clients
             if (response.Item == null || !response.IsItemSet)
                 return null;
             return response;
-            //var result = response.Item.ToClass<TeamInfoDBResponse>();
         }
 
         public async void PostTeam(TeamInfoDb data)

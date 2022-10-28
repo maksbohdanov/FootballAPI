@@ -1,4 +1,5 @@
 ﻿using BLL.Models;
+using BLL.Responses;
 
 namespace BLL.Interfaces
 {
@@ -9,5 +10,8 @@ namespace BLL.Interfaces
         Task<Fixture> GetFixtureLastByTeam(int team);
         Task<Fixture> GetFixtureLastByTeam(string team);
         Task<Odds> GetOdds(int fixture);
+        Task<ICollection<FixtureResponse>> GetFavoriteFixtures(string user);
+        Task<bool> AddToFavorites(FixtureResponse fixture);
+        Task<bool> DeleteFromFavorites(string id);
     }
 }

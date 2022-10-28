@@ -1,7 +1,9 @@
-﻿using BLL.Clients;
+﻿using Amazon.DynamoDBv2.Model;
+using BLL.Clients;
 using BLL.Extensions;
 using BLL.Interfaces;
 using BLL.Models;
+using BLL.Responses;
 using DAL.Entities;
 using DAL.Interfaces;
 using Newtonsoft.Json;
@@ -140,5 +142,36 @@ namespace BLL.Services
             else { return null; }
         }
 
+        public async Task<ICollection<FixtureResponse>> GetFavoriteFixtures(string user)
+        {
+            var response = await _dynamoDbClient.GetAllAsync(user);
+            if (response != null)
+            {
+                var convertedResponse = new List<FixtureDb>();
+                foreach (Dictionary<string, AttributeValue> item in response.Items)
+                {
+                    convertedResponse.Add(item.ToClass<FixtureDb>());
+
+                }
+                var result = convertedResponse
+                    .Select(x => x.ConvertFromDb())
+                    .ToList();
+                return result;
+            }
+            else
+                return null;
+        }
+
+        public async Task<bool> AddToFavorites (FixtureResponse fixture)
+        {
+            var data = fixture.ConvertFromDb();
+            var result = await _dynamoDbClient.PostFixture(data);
+            return result;
+        }
+
+        public async Task<bool> DeleteFromFavorites(string id)
+        {
+            return await _dynamoDbClient.Delete(id);
+        }
     }
 }
